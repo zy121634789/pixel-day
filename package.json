@@ -1,0 +1,38 @@
+{
+  "name": "pixel-day",
+  "version": "0.1.0",
+  "description": "像素日常 - Daily quests and todos",
+  "main": "main.cjs",
+  "author": "zy121634789",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.3.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "io.github.zy121634789.pixelday",
+    "productName": "Pixel Day",
+    "artifactName": "Pixel-Day-${version}-Windows-${arch}.${ext}",
+    "files": [
+      "main.cjs",
+      "app/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "app/icons/icon-512.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
